@@ -1,12 +1,17 @@
 import "./App.css";
 import AddNewNote from "./Components/AddNewNote";
+import NoteList from "./Components/NoteList";
+import { useState } from "react";
 function App() {
-    return(
+    const [notes, setNotes] = useState([]);
+    return (
         <div className="container">
             <div className="note-header">header</div>
             <div className="note-app">
-                <AddNewNote />
-                <div className="note-container">notes</div>
+                <AddNewNote setNotes={setNotes} />
+                <div className="note-container">
+                    <NoteList notes={notes} />
+                </div>
             </div>
         </div>
     )
